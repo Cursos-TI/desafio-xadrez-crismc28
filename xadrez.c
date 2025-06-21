@@ -1,10 +1,12 @@
 #include <stdio.h>
 
 int main() {
-    // Número de casas que cada peça irá se mover
+    // Quantidade de casas para cada movimento
     int casasTorre = 5;
     int casasBispo = 5;
     int casasRainha = 8;
+    int casasBaixo = 2;
+    int casasEsquerda = 1;
 
     // -----------------------
     // Movimento da Torre (5 casas para a Direita) - usando FOR
@@ -33,6 +35,24 @@ int main() {
         printf("Esquerda\n");
         k++;
     } while (k < casasRainha);
+
+    // -----------------------
+    // Movimento do Cavalo (2 casas para Baixo e 1 para Esquerda) - usando FOR + WHILE
+    // -----------------------
+    printf("\nMovimento do Cavalo:\n");
+
+    // Loop externo (for): movimentos verticais (duas casas para baixo)
+    for (int i = 0; i < casasBaixo; i++) {
+        printf("Baixo\n");
+        
+        // Loop interno (while): apenas executa uma vez para o movimento horizontal
+        int m = 0;
+        while (m < casasEsquerda && i == casasBaixo - 1) {
+            // Só executa após os dois movimentos para baixo
+            printf("Esquerda\n");
+            m++;
+        }
+    }
 
     return 0;
 }
